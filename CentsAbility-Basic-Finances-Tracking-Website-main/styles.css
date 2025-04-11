@@ -1,0 +1,297 @@
+/*FIRST INDEX PAGE*/
+
+/* Text size of Title; REM: relative to the font size of the root element */
+.big-text {
+    font-size: 9rem;
+}
+
+
+/* "Get Started" button */
+.white-btn {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s; 
+    /* to change property values smoothly, over a given duration.*/
+}
+
+/* Changes to the button when hovered: */
+.white-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.centered {
+    text-align: center;
+}
+
+.nav-list {
+    text-align: center;
+}
+
+.nav-item {
+    display: inline-block;
+    margin: 10px; 
+}
+
+
+/* Style the footer text color */
+.footer p {
+    color: #e6e3e3;
+}
+
+body {
+    font-family: monospace, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    font-size: large;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .header {
+    background-image: url(starter.jpg);
+    color: #fff;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+  
+  .logo {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav-list {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-item a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+  }
+  
+  .nav-item a:hover {
+    color: #E0E0E0;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  .hero-title {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-text {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+  
+  /*structure of the button*/
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #333;
+  }
+  
+  /*Text below the background img*/
+  .footer {
+    background-color: #1f1e1e;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+
+
+/* Style for the "Welcome to CentsAbility" text */
+.hero-title {
+    font-size: 3rem; /*The font size as needed is adjusted */
+}
+
+/* Style for the "Get Started" button */
+.white-btn {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+.white-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Style for "Join CentsAbility...." */
+.hero-text {
+    color: #fff;
+
+}
+
+.background-image {
+    background: url('homepage.jpg') center/cover no-repeat; /* Sets the background image and positions it */
+    text-align: center; /* Center-aligns the text within the container */
+    color: #fff; 
+    padding: 100px 0; 
+}
+
+/* HOMEPAGE */
+
+/* Style for the catalog container */
+.catalog-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #000000; /* Background color for the container */
+  padding: 20px; 
+  border-radius: 10px; /* Add rounded corners for the container */
+  margin-top: 20px; /* AdjustS marginS */
+}
+
+/* Style for each catalog box */
+.catalog-box {
+  flex: 1;
+  text-align: center;
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Add rounded corners for the box */
+}
+
+/* Adding individual box colors */
+.pink {
+  background-color: #ff98aa; /* Pink background color */
+}
+
+.purple {
+  background-color: #9b7bdc; /* Purple background color */
+}
+
+.yellow {
+  background-color: #ffea80; /* Yellow background color */
+}
+
+.green {
+  background-color: #1ec5a7; /* Green background color */
+}
+
+/* Hover effect for catalog boxes */
+.catalog-box:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Style for the text inside the boxes */
+.black-text {
+  color: #000000; 
+}
+
+/* Style for the centered-text container */
+.centered-text {
+  text-align: center;
+  color: #ffffff; 
+  margin-top: 20px; 
+}
+
+/* Style for images */
+.image-with-border {
+  display: block;
+  margin: 20px auto; /* Center-aligns the images horizontally with margin */
+  border: 10px solid #000; 
+  max-width: 70%; /* Ensures that the image doesn't exceed its container's width */
+  border-radius: 10px; /* Adds rounded corners to the border */
+}
+
+/* Style for the body of the webpage */
+body {
+  background-color: #000; 
+  color: #fff; 
+}
+
+/*LOGIN PAGE*/
+
+/* Style for the login page container */
+.login-container {
+  background-image: url('login.jpg'); 
+  background-size: very small;
+  background-repeat: no-repeat;
+  background-position: center; 
+  color: #fff; /* Text color */
+  padding: 20px; /* Adjust padding as needed */
+  text-align: center; /* Center-align the text within the container */
+}
+
+/* Style for the form elements */
+form {
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for input fields */
+}
+
+button {
+  background-color: #d733a6; /* Blue button background color */
+  color: #fff; /* White button text color */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddec0e; /* Darker blue on hover */
+}
+
+
+body {
+  background-color: #000; /* Black background color */
+  color: #fff; /* White text color */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.centered-heading {
+  text-align: center;
+}

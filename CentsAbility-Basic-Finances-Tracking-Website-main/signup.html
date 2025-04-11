@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<head>
+    <title>Sign Up - CentsAbility</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+    
+    body {
+        background: url('signup.jpg') no-repeat center/cover;
+        background-size: cover;
+    }
+
+    .signin-container {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+        width: 400px;
+        height: 550px;
+        background-color: #f9f8f8;;
+        padding: 10px 30px;
+    }
+
+    .card_title {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .card_title h1 {
+        font-size: 26px;
+        font-weight: bold;
+    }
+
+    .form input {
+        margin: 10px 0;
+        width: 100%;
+        background-color: #e2e2e2;
+        border: none;
+        outline: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+    }
+
+    .form button {
+        background-color: #4796ff;
+        color: #ffffff;
+        font-size: 16px;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        padding: 8px 15px;
+        width: 100%;
+    }
+
+    .card_terms {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+    }
+  </style>
+ 
+
+<script>
+    function validateForm() {
+        var pw1 = document.getElementById("pwsd1").value;
+        var pw2 = document.getElementById("pwsd2").value;
+        if (pw1 == "") {
+            document.getElementById("msg1").innerHTML = "*Fill the password please!";
+            return false;
+        } else if (pw2 == "") {
+            document.getElementById("msg2").innerHTML = "*Enter the password please!";
+            return false;
+        } else if (pw1.length < 8) {
+            document.getElementById("msg1").innerHTML = "*Password length must be at least 8 characters";
+            return false;
+        } else if (pw1.length > 15) {
+            document.getElementById("msg1").innerHTML = "*Password length must not exceed 15 characters";
+            return false;
+        } else if (pw1 != pw2) {
+            document.getElementById("msg2").innerHTML = "*Passwords are not the same";
+            return false;
+        } else {
+            alert("Your password was created successfully");
+            window.location.href = "enter.html"; 
+        }
+    }
+</script>
+
+<body>
+    <div class="signin-container">
+        <div class="card">
+            <div class="card_title">
+                <h1>Create Account</h1>
+                <span>Already have an account? <a href="login.html">Log In</a></span>
+            </div>
+            <div class="form">
+                <form onsubmit="return validateForm()" action="login.html" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" placeholder="Email" id="email" required>
+
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="pwsd1" value="" placeholder="Password" required>
+                    <span id="msg1" style="color:red"></span>
+
+                    <label for="password">Confirm Password:</label>
+                    <input type="password" name="cpassword" id="pwsd2" value="" placeholder="Confirm your password">
+                    <span id="msg2" style="color:red"></span>
+
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

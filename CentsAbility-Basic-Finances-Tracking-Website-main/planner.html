@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+
+    .chart-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
+        height: 400px;
+        margin: 20px auto;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid black;
+    }
+
+    head {
+        color: rgb(0, 0, 0);
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background: url('planner.jpg') no-repeat;
+        background-size: cover;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: 20px auto;
+        background-color: rgba(255, 255, 255, 0.8);
+        align-self: left;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 16px;
+        text-align: left;
+        color: black;
+        
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: rgb(0, 0, 0); 
+    }
+
+    input[type="text"] {
+        width: 100%;
+        border: none;
+        padding: 4px;
+    }
+
+    .submit-button {
+        margin: 20px auto;
+        display: block;
+        padding: 10px 20px;
+        background-color: #dbd407;
+        color: #000000;
+        border: none;
+        cursor: pointer;
+    }
+
+</style>
+<body>
+   
+
+    <form id="data-form">
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Goals</th>
+            </tr>
+            <tr>
+                <td>Food</td>
+                <td><input type="text" name="foodGoals" class="category-input" data-category="Food" oninput="this.value = this.value.replace(/[^0-9.]/g, '');"></td>
+            </tr>
+            <tr>
+                <td>Extras</td>
+                <td><input type="text" name="extrasGoals" class="category-input" data-category="Extras" oninput="this.value = this.value.replace(/[^0-9.]/g, '');"></td>
+            </tr>
+            <tr>
+                <td>Travel</td>
+                <td><input type="text" name="travelGoals" class="category-input" data-category="Travel" oninput="this.value = this.value.replace(/[^0-9.]/g, '');"></td>
+            </tr>
+            <tr>
+                <td>Fun</td>
+                <td><input type="text" name="funGoals" class="category-input" data-category="Fun" oninput="this.value = this.value.replace(/[^0-9.]/g, '');"></td>
+            </tr>
+            <tr>
+                <td>Rent</td>
+                <td><input type="text" name="rentGoals" class="category-input" data-category="Rent" oninput="this.value = this.value.replace(/[^0-9.]/g, '');"></td>
+            </tr>
+            <tr>
+                <td>Essentials</td>
+                <td><input type="text" name="essentialsGoals" class="category-input" data-category="Essentials" oninput="this.value = this.value.replace(/[^0-9.]/g, '');"></td>
+            </tr>
+            <tr>
+                <td>Groceries</td>
+                <td><input type="text" name="groceriesGoals" class="category-input" data-category="Groceries" oninput="this.value = this.value.replace(/[^0-9.]/g, '');"></td>
+            </tr>
+        </table>
+        <button type="submit" class="submit-button">Set Expense Limits</button>
+    </form>
+
+    <div class="chart-container">
+        <canvas id="pie-chart"></canvas>
+    </div>
+
+    <script>
+        document.getElementById('data-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+           
+            const categories = [
+                'Food',
+                'Extras',
+                'Travel',
+                'Fun',
+                'Rent',
+                'Essentials',
+                'Groceries',
+            ];
+
+            const data = categories.map(category => ({
+                label: category,
+                value: parseFloat(document.getElementsByName(`${category.toLowerCase()}Goals`)[0].value) || 0,
+            }));
+
+            const totalExpenses = data.reduce((total, item) => total + item.value, 0);
+
+            updateChart(data);
+
+            document.getElementById('total-expenses').textContent = 'Total Expenses: $' + totalExpenses.toFixed(2);
+        });
+
+        function updateChart(data) {
+            const labels = data.map(item => item.label);
+            const values = data.map(item => item.value);
+            const colors = getCategoryColors(data);
+
+            const ctx = document.getElementById('pie-chart').getContext('2d');
+            const chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: values,
+                        backgroundColor: colors,
+                        borderWidth: 0,
+                    }],
+                },
+            });
+        }
+
+        function getCategoryColors(data) {
+            const categoryColors = {
+                'Food': '#7f147f',
+                'Extras': '#54d8a8',
+                'Travel': '#dcdc18',
+                'Fun': '#d61a88',
+                'Rent': '#ff7301e8',
+                'Essentials': 'maroon',
+                'Groceries': '#3b81de',
+            };
+
+            return data.map(item => categoryColors[item.label]);
+        }
+    </script>
+</body>
+</html>
